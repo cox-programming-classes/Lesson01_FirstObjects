@@ -11,8 +11,8 @@ using Toolkit;
 // produces the same numbers -- and so does everybody else's machine.
 var rng = new Random(42);
 
-Scene1_ADieIsThreeNumbers(rng);
-Scene2_TheCursedD20();
+//Scene1_ADieIsThreeNumbers(rng);
+//Scene2_TheCursedD20();
 Scene3_WhatAVariableHolds();
 
 
@@ -65,8 +65,7 @@ static void Scene2_TheCursedD20()
     Console.WriteLine($"The die on the table:  {partyDie}");
 
     // Your character has a +5 attack bonus, so you pick up the die and...
-    var yourDie = partyDie;
-    yourDie.Modifier = 5;
+    var yourDie = new Dice { Count = 1, Sides = 20, Modifier = 5 };
 
     Console.WriteLine($"Your die:              {yourDie}");
     Console.WriteLine($"The die on the table:  {partyDie}");
@@ -99,8 +98,7 @@ static void Scene3_WhatAVariableHolds()
     // Comparing by value and being copied by value are different questions,
     // and a record only answers the first one.
     var first = new Dice { Sides = 20 };
-    var second = first;
-    second.Sides = 4;
+    var second = new Dice { Sides = 4 };
     Console.WriteLine($"first = {first}, second = {second}    two boxes, one die");
 
     // TODO (Step 5): the line above will stop compiling, and putting `set`
